@@ -1,14 +1,214 @@
 <md-toolbar md-scroll-shrink>
     <div class="md-toolbar-tools">
-      <p><strong>Memory Game</strong></p>
+        <div class="header" flex>
+            <p><strong>Memory Game</strong></p>
+        </div>
     </div>
-  </md-toolbar>
-  <br>
-  <div align="center">
-    <h4>Let's Play a Matching Game, Please Select Your Difficulty</h4>
-    <md-button class="md-raised" ng-click="vm.easy()">Easy</md-button>
-    <md-button class="md-raised" ng-click="vm.hard()">Hard</md-button>
-  </div>
+</md-toolbar>
+<br>
+<div align="center">
+    <h3>Let's Play a Matching Game, Please Select Your Difficulty</h3>
+    <form method="post" action="/addname">
+        <h4>Please Enter Your Name Below:</h4>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>First name</label>
+            <input ng-model="user.firstName">
+        </md-input-container>
+    </form>
 
-  <ui-view></ui-view>
-  
+    <!-- <div>Pairs left to match: {{game.unmatchedPairs}}</div>
+  <div>Matching: {{game.firstPick.title}}</div>
+
+  <table>
+    <tr ng-repeat="row in game.grid">
+      <td ng-repeat="tile in row" class="container">
+        <div class="card" ng-class="{flipped: tile.flipped}" ng-click="game.flipTile(tile)">
+            <img class="front" ng-src="img/back.png">
+            <img class="back" ng-src="img/{{tile.title}}.png">
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="message">{{game.message}}</div>
+</div> -->
+<div ng-cloak>
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom md-swipe-content>
+            <md-tab label="Easy" style="padding: 25px; text-align: center;">
+                <md-content class="md-padding" align="center">
+                    <div layout="row">
+                            <div id="score-panel" align="center" flex>
+                                <md-button class="md-raised md-primary" ng-value="easy" ng-click="vm.start()">Start</md-button>
+                                <md-button class="md-raised md-warn" ng-click="vm.reset()">Reset</md-button>
+                            </div>
+                        </div>
+                    <div layout="row">
+                        <div id="score-panel" align="center" flex>
+                            <div id="myProgress">
+                                <progress id="vm.progressbar" value="0" max="100"></progress>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div layout="row">
+                        <div id="score-panel" align="center" flex>
+                            <span class="moves">0</span> Moves
+                        </div>
+                    </div>
+                    <div layout="row" layout-xs="column">
+                        <div flex class="flipInX1">
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()" ng-value="card1 = true">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                        <div flex class="flipInX1">
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                    </div>
+                    <br>
+                    <div layout="row" layout-xs="column">
+                        <div flex class="flipInX1">
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                        <div flex class="flipInX1">
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Hard" style="padding: 25px; text-align: center;" flex>
+                <md-content class="md-padding">
+                    <md-content class="md-padding" align="center">
+                        <div layout="row">
+                            <div id="score-panel" align="center" flex>
+                                <md-button class="md-raised md-primary" ng-value="hard" ng-click="vm.start()">Start</md-button>
+                                <md-button class="md-raised md-warn" ng-click="vm.reset()">Reset</md-button>
+                            </div>
+                        </div>
+                        <div layout="row">
+                            <div id="score-panel" align="center" flex>
+                                <md-progress-linear align="center" md-mode="determinate" value="{{vm.determinateValue}}"></md-progress-linear>
+                            </div>
+                        </div>
+                        <br>
+                        <div layout="row">
+                            <div id="score-panel" align="center" flex>
+                                <span class="moves">0</span> Moves
+                            </div>
+                        </div>
+                    <div layout="row" layout-xs="column">
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                    </div>
+                    <br>
+                    <div layout="row" layout-xs="column">
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                            </div>
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                    </div>
+                    <br>
+                    <div layout="row" layout-xs="column">
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                    </div>
+                    <br>
+                    <div layout="row" layout-xs="column">
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                        <div flex>
+                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                <img class="logo-image" src="../assets/cardCover.png">
+                            </md-button>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="High Scores" style="padding: 25px; text-align: center;">
+                    <md-content class="md-padding" align="center">
+                        <div layout="row" layout-xs="column">
+                            <div flex>
+                            Name:
+                            </div>
+                            <div flex>
+                                Danielle
+                            </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+        </md-tabs>
+    </md-content>
+</div>
+<ui-view></ui-view>
