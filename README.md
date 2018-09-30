@@ -3,7 +3,7 @@ A simple angular matching game
 
 To set up the project 
 
-`git clone`
+`git clone https://github.com/awaywithdreams/matchingGame.git`
 
 then cd into the memoryMatchingGame directory and run
 
