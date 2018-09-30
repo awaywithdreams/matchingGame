@@ -4,7 +4,7 @@
   "description": "a simple memory matching game",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Dani Allan",
   "license": "ISC",
@@ -14,6 +14,7 @@
     "angular-aria": "^1.5.8",
     "angular-material": "^0.11.4",
     "angular-ui-router": "^0.2.18",
-    "mdi": "^1.7.22"
+    "mdi": "^1.7.22",
+    "mocha": "^5.2.0"
   }
 }
