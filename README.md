@@ -1,4 +1,4 @@
-# matchingGame
+# Memory Matching Game
 A simple angular matching game
 
 To set up the project 
