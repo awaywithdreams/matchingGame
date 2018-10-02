@@ -9,12 +9,12 @@
         //main page declairations 
         var vm = this;
         vm.reset = reset;
-        vm.start = start;
+        vm.easyStart = easyStart;
+        vm.hardStart = hardStart;
         vm.flip = flip;
         vm.progressBar;
         vm.determinateValue = 0;
         var self = this, j= 0, counter = 0;
-        var tileNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 
         //reset the game
         function reset () {
@@ -31,12 +31,18 @@
             location.reload();
           } 
         };
-        //start game initalization 
-        function start () {
-          console.log("START GAME");
+        //easy start game initalization 
+        function easyStart () {
+          easyShuffle();
           //to kick off the progress bar on start
-          //progressBar();
+          progressBar();
         };
+
+        //hard start game initalization
+        function hardStart () {
+          hardShuffle();
+          progressBar();
+        }
 
         // Function for the progress
         function progressBar () {
@@ -61,10 +67,79 @@
           );
         };  
 
+        //this runs on click of one of the cards
         function flip () {
           animationClick('.flipInX1','flipInX'); 
         };
 
+        //shuffling the cards for the easy deck
+        function easyShuffle () {
+          var easyCards = ['A', 'B', 'A', 'B'];
+          var easyShuffledCards = _.shuffle(easyCards);
+          console.log(easyShuffledCards);
+        };
+
+        //shuffling the cards for the hard deck
+        function hardShuffle () {
+          var hardCards = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D',
+                          'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'];
+          var hardShuffledCards = _.shuffle(hardCards);
+          console.log(hardShuffledCards);
+        };
+
+        //actual game logic
+        function playGame(shuffledCards){
+          var shuffledCards = easyShuffledCards || hardShuffledCards;
+          this.layout = makegrid(shuffledCards);
+          this.unmatchedPairs = shuffledCards.length;
+
+          this.flipCard = function(card) {
+            if (card.flipped) {
+              return;
+            }
+            card.flip();
+            if (!this.firstPick || this.secondPick) {
+        
+              if (this.secondPick) {
+                this.firstPick.flip();
+                this.secondPick.flip();
+                this.firstPick = this.secondPick = undefined;
+              }
+        
+              this.firstPick = tile;
+        
+            } else {
+        
+              if (this.firstPick.title === tile.title) {
+                this.unmatchedPairs--;
+                this.firstPick = this.secondPick = undefined;
+              } else {
+                this.secondPick = tile;
+              }
+            }
+          }
+        };
+
+        function makeGrid(tileDeck) {
+          var gridDimension = Math.sqrt(tileDeck.length),
+              grid = [];
+        
+          for (var row = 0; row < gridDimension; row++) {
+            grid[row] = [];
+            for (var col = 0; col < gridDimension; col++) {
+                grid[row][col] = removeRandomTile(tileDeck);
+            }
+          }
+        
+          return grid;
+        }
+
+        
+        function removeRandomTile(tileDeck) {
+          var i = Math.floor(Math.random()*tileDeck.length);
+          return tileDeck.splice(i, 1)[0];
+        }
+        
         
       });
   

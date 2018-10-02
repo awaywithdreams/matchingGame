@@ -39,14 +39,14 @@
                 <md-content class="md-padding" align="center">
                     <div layout="row">
                             <div id="score-panel" align="center" flex>
-                                <md-button class="md-raised md-primary" ng-value="easy" ng-click="vm.start()">Start</md-button>
+                                <md-button class="md-raised md-primary" ng-value="easy" ng-click="vm.easyStart()">Start</md-button>
                                 <md-button class="md-raised md-warn" ng-click="vm.reset()">Reset</md-button>
                             </div>
                         </div>
                     <div layout="row">
                         <div id="score-panel" align="center" flex>
                             <div id="myProgress">
-                                <progress id="vm.progressbar" value="0" max="100"></progress>
+                                <md-progress-linear align="center" md-mode="determinate" value="{{vm.determinateValue}}"></md-progress-linear>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                     <md-content class="md-padding" align="center">
                         <div layout="row">
                             <div id="score-panel" align="center" flex>
-                                <md-button class="md-raised md-primary" ng-value="hard" ng-click="vm.start()">Start</md-button>
+                                <md-button class="md-raised md-primary" ng-value="hard" ng-click="vm.hardStart()">Start</md-button>
                                 <md-button class="md-raised md-warn" ng-click="vm.reset()">Reset</md-button>
                             </div>
                         </div>
