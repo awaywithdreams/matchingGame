@@ -17,6 +17,7 @@
     "animate.css": "^3.7.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "lodash": "^4.17.11",
     "mdi": "^1.7.22",
     "mocha": "^5.2.0",
     "mongodb": "^3.1.6",
