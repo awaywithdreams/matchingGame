@@ -17,4 +17,11 @@ var assert = require('assert');
     it('should test if 3*3 = 9', function(){
       assert.equal(9, 3*3);
     })
-  })
+  });
+
+  var assert = require('assert');
+    describe('easyCards', function () {
+      it('should have an indexOf -1', function (){
+        assert.equal(-1, ['A', 'B', 'A', 'B'].indexOf(3))
+      })
+    });
