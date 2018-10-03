@@ -38,7 +38,8 @@ in terminal enter
 
 your test results should look like
 
-```Array
+```
+Array
     #indexOf()
       ✓ should return -1 when the value is not present
 
@@ -47,3 +48,4 @@ your test results should look like
 
   easyCards
     ✓ should have an indexOf -1
+```
