@@ -38,7 +38,6 @@
           easyShuffle();
           //to kick off the progress bar on start
           progressBar();
-          playGame();
         };
 
         //hard start game initalization
@@ -46,7 +45,6 @@
           vm.isStarted = true;
           hardShuffle();
           progressBar();
-          playGame();
         }
 
         // Function for the progress
@@ -92,67 +90,6 @@
           console.log(hardShuffledCards);
         };
 
-        //actual game logic
-        function playGame(shuffledCards){
-          easyShuffle();
-          hardShuffle();
-          var shuffledCards = easyShuffledCards || hardShuffledCards;
-          console.log(shuffledCards);
-        //   this.layout = makegrid(shuffledCards);
-        //   this.unmatchedPairs = shuffledCards.length;
-
-
-        
-
-        //   this.flipCard = function(card) {
-        //     if (card.flipped) {
-        //       return;
-        //     }
-        //     card.flip();
-        //     if (!this.firstPick || this.secondPick) {
-        
-        //       if (this.secondPick) {
-        //         this.firstPick.flip();
-        //         this.secondPick.flip();
-        //         this.firstPick = this.secondPick = undefined;
-        //       }
-        
-        //       this.firstPick = tile;
-        
-        //     } else {
-        
-        //       if (this.firstPick.title === tile.title) {
-        //         this.unmatchedPairs--;
-        //         this.firstPick = this.secondPick = undefined;
-        //       } else {
-        //         this.secondPick = tile;
-        //       }
-        //     }
-        //   }
-        // };
-
-        // //making the grid for the matching game
-        // function makeGrid(tileDeck) {
-        //   var gridDimension = Math.sqrt(tileDeck.length),
-        //       grid = [];
-        
-        //   for (var row = 0; row < gridDimension; row++) {
-        //     grid[row] = [];
-        //     for (var col = 0; col < gridDimension; col++) {
-        //         grid[row][col] = removeRandomTile(tileDeck);
-        //     }
-        //   }
-        
-        //   return grid;
-        // }
-
-        
-        // function removeRandomTile(tileDeck) {
-        //   var i = Math.floor(Math.random()*tileDeck.length);
-        //   return tileDeck.splice(i, 1)[0];
-        }
-        
-        
 
 
       });
