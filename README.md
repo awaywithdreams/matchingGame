@@ -46,4 +46,4 @@ your test results should look like
     ✓ should test if 3*3 = 9
 
   easyCards
-    ✓ should have an indexOf -1```
+    ✓ should have an indexOf -1
