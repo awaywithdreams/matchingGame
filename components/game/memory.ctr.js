@@ -11,7 +11,8 @@
         vm.reset = reset;
         vm.easyStart = easyStart;
         vm.hardStart = hardStart;
-        vm.isStarted = false;
+        vm.isEasyStarted = false;
+        vm.isHardStarted = false;
         vm.flip = flip;
         vm.progressBar;
         vm.determinateValue = 0;
@@ -34,7 +35,7 @@
         };
         //easy start game initalization 
         function easyStart () {
-          vm.isStarted = true;
+          vm.isEasyStarted = true;
           easyShuffle();
           //to kick off the progress bar on start
           progressBar();
@@ -42,7 +43,7 @@
 
         //hard start game initalization
         function hardStart () {
-          vm.isStarted = true;
+          vm.isHardStarted = true;
           hardShuffle();
           progressBar();
         }

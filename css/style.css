@@ -2,7 +2,6 @@
   background: rgb(58, 35, 73);
   width: 200px;
   height: 200px;
-  border-radius: 50%;
 }
 
 .displayCard {
@@ -12,3 +11,6 @@
   border-radius: 50%;
 }
 
+html {
+  box-sizing: border-box;
+}

@@ -8,13 +8,13 @@
 <br>
 <div align="center">
     <h3>Let's Play a Matching Game, Please Select Your Difficulty</h3>
-    <form method="post" action="/addname">
+    <!-- <form method="post" action="/addname">
         <h4>Please Enter Your Name Below:</h4>
         <md-input-container class="md-block" flex-gt-sm>
             <label>First name</label>
             <input ng-model="user.firstName">
         </md-input-container>
-    </form>
+    </form> -->
 </div>
 <div ng-cloak>
     <md-content>
@@ -40,26 +40,22 @@
                             <span class="moves">0</span> Moves
                         </div>
                     </div>
-                    <div ng-if="vm.isStarted === true">
+                    <div ng-if="vm.isEasyStarted === true">
                         <div layout="row" layout-xs="column">
                             <div flex class="flipInX1">
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
                             </div>
                             <div flex class="flipInX1">
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
                             </div>
                         </div>
                         <br>
                         <div layout="row" layout-xs="column">
                             <div flex class="flipInX1">
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
                             </div>
                             <div flex class="flipInX1">
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
                             </div>
                         </div>
                     </div>
@@ -85,81 +81,65 @@
                                 <span class="moves">0</span> Moves
                             </div>
                         </div>
-                        <div ng-if="vm.isStarted === true">
+                        <div ng-if="vm.isHardStarted === true">
                             <div layout="row" layout-xs="column">
                                 <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                    </md-button>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
                                 </div>  
-                            </div>
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
-                            </div>
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
-                            </div>
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
-                            </div>
-                        </div>
-                        <br>
-                        <div layout="row" layout-xs="column">
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
                                 </div>
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                </div>
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                </div>
                             </div>
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
+                            <br>
+                            <div layout="row" layout-xs="column">
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                    </div>
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                </div>
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                </div>
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                </div>
                             </div>
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
+                            <br>
+                            <div layout="row" layout-xs="column">
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                </div>
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                </div>
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                </div>
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                </div>
                             </div>
-                        </div>
-                        <br>
-                        <div layout="row" layout-xs="column">
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
-                            </div>
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
-                            </div>
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
-                            </div>
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
-                            </div>
-                        </div>
-                        <br>
-                        <div layout="row" layout-xs="column">
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
-                            </div>
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
-                            </div>
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
-                            </div>
-                            <div flex>
-                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                </md-button>
+                            <br>
+                            <div layout="row" layout-xs="column">
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                </div>
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                </div>
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                </div>
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                </div>
                             </div>
                         </div>
                     </div>
