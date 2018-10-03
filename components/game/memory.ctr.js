@@ -19,7 +19,7 @@
         //reset the game
         function reset () {
           if (confirm("If you reset you will loose everything, Are you okay with this?")) {
-            //to reload the page and reset the values 
+            //to reload the page and reset the game 
             location.reload();
           } 
         };
@@ -27,7 +27,7 @@
         //game over popup box
         function gameOver() {
           if (confirm("Game Is Over Do you Wish to Play Again?")) {
-            //to reload the page and reset the values 
+            //to reload the page and reset the game 
             location.reload();
           } 
         };
@@ -120,6 +120,7 @@
           }
         };
 
+        //making the grid for the matching game
         function makeGrid(tileDeck) {
           var gridDimension = Math.sqrt(tileDeck.length),
               grid = [];

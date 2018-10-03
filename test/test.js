@@ -25,3 +25,10 @@ var assert = require('assert');
         assert.equal(-1, ['A', 'B', 'A', 'B'].indexOf(3))
       })
     });
+
+    var assert = require('assert');
+      describe('hardCards', function () {
+        it('should have an indexOf -1', function () {
+          assert.equal(-1, (memoryController.hardShuffle.hardCards).indexOf(15))
+        })
+      })

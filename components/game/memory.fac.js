@@ -7,6 +7,7 @@
       .factory('memoryFactory', function($http) {
 
         
+        
       });
       
   })();
