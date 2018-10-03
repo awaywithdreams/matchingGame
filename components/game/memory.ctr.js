@@ -11,6 +11,7 @@
         vm.reset = reset;
         vm.easyStart = easyStart;
         vm.hardStart = hardStart;
+        vm.isStarted = false;
         vm.flip = flip;
         vm.progressBar;
         vm.determinateValue = 0;
@@ -33,15 +34,19 @@
         };
         //easy start game initalization 
         function easyStart () {
+          vm.isStarted = true;
           easyShuffle();
           //to kick off the progress bar on start
           progressBar();
+          playGame();
         };
 
         //hard start game initalization
         function hardStart () {
+          vm.isStarted = true;
           hardShuffle();
           progressBar();
+          playGame();
         }
 
         // Function for the progress
@@ -75,7 +80,7 @@
         //shuffling the cards for the easy deck
         function easyShuffle () {
           var easyCards = ['A', 'B', 'A', 'B'];
-          var easyShuffledCards = _.shuffle(easyCards);
+          return easyShuffledCards = _.shuffle(easyCards);
           console.log(easyShuffledCards);
         };
 
@@ -83,65 +88,73 @@
         function hardShuffle () {
           var hardCards = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D',
                           'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'];
-          var hardShuffledCards = _.shuffle(hardCards);
+          return hardShuffledCards = _.shuffle(hardCards);
           console.log(hardShuffledCards);
         };
 
         //actual game logic
         function playGame(shuffledCards){
+          easyShuffle();
+          hardShuffle();
           var shuffledCards = easyShuffledCards || hardShuffledCards;
-          this.layout = makegrid(shuffledCards);
-          this.unmatchedPairs = shuffledCards.length;
+          console.log(shuffledCards);
+        //   this.layout = makegrid(shuffledCards);
+        //   this.unmatchedPairs = shuffledCards.length;
 
-          this.flipCard = function(card) {
-            if (card.flipped) {
-              return;
-            }
-            card.flip();
-            if (!this.firstPick || this.secondPick) {
-        
-              if (this.secondPick) {
-                this.firstPick.flip();
-                this.secondPick.flip();
-                this.firstPick = this.secondPick = undefined;
-              }
-        
-              this.firstPick = tile;
-        
-            } else {
-        
-              if (this.firstPick.title === tile.title) {
-                this.unmatchedPairs--;
-                this.firstPick = this.secondPick = undefined;
-              } else {
-                this.secondPick = tile;
-              }
-            }
-          }
-        };
 
-        //making the grid for the matching game
-        function makeGrid(tileDeck) {
-          var gridDimension = Math.sqrt(tileDeck.length),
-              grid = [];
         
-          for (var row = 0; row < gridDimension; row++) {
-            grid[row] = [];
-            for (var col = 0; col < gridDimension; col++) {
-                grid[row][col] = removeRandomTile(tileDeck);
-            }
-          }
+
+        //   this.flipCard = function(card) {
+        //     if (card.flipped) {
+        //       return;
+        //     }
+        //     card.flip();
+        //     if (!this.firstPick || this.secondPick) {
         
-          return grid;
+        //       if (this.secondPick) {
+        //         this.firstPick.flip();
+        //         this.secondPick.flip();
+        //         this.firstPick = this.secondPick = undefined;
+        //       }
+        
+        //       this.firstPick = tile;
+        
+        //     } else {
+        
+        //       if (this.firstPick.title === tile.title) {
+        //         this.unmatchedPairs--;
+        //         this.firstPick = this.secondPick = undefined;
+        //       } else {
+        //         this.secondPick = tile;
+        //       }
+        //     }
+        //   }
+        // };
+
+        // //making the grid for the matching game
+        // function makeGrid(tileDeck) {
+        //   var gridDimension = Math.sqrt(tileDeck.length),
+        //       grid = [];
+        
+        //   for (var row = 0; row < gridDimension; row++) {
+        //     grid[row] = [];
+        //     for (var col = 0; col < gridDimension; col++) {
+        //         grid[row][col] = removeRandomTile(tileDeck);
+        //     }
+        //   }
+        
+        //   return grid;
+        // }
+
+        
+        // function removeRandomTile(tileDeck) {
+        //   var i = Math.floor(Math.random()*tileDeck.length);
+        //   return tileDeck.splice(i, 1)[0];
         }
+        
+        
 
-        
-        function removeRandomTile(tileDeck) {
-          var i = Math.floor(Math.random()*tileDeck.length);
-          return tileDeck.splice(i, 1)[0];
-        }
-        
-        
+
       });
   
   })();

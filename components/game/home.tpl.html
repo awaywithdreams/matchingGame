@@ -40,29 +40,27 @@
                             <span class="moves">0</span> Moves
                         </div>
                     </div>
-                    <div layout="row" layout-xs="column">
-                        <div flex class="flipInX1">
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()" ng-value="card1 = true">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
+                    <div ng-if="vm.isStarted === true">
+                        <div layout="row" layout-xs="column">
+                            <div flex class="flipInX1">
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
+                            <div flex class="flipInX1">
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
                         </div>
-                        <div flex class="flipInX1">
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
-                        </div>
-                    </div>
-                    <br>
-                    <div layout="row" layout-xs="column">
-                        <div flex class="flipInX1">
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
-                        </div>
-                        <div flex class="flipInX1">
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
+                        <br>
+                        <div layout="row" layout-xs="column">
+                            <div flex class="flipInX1">
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
+                            <div flex class="flipInX1">
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
                         </div>
                     </div>
                 </md-content>
@@ -87,95 +85,82 @@
                                 <span class="moves">0</span> Moves
                             </div>
                         </div>
-                    <div layout="row" layout-xs="column">
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
-                        </div>
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
-                        </div>
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
-                        </div>
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
-                        </div>
-                    </div>
-                    <br>
-                    <div layout="row" layout-xs="column">
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
+                        <div ng-if="vm.isStarted === true">
+                            <div layout="row" layout-xs="column">
+                                <div flex>
+                                    <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                    </md-button>
+                                </div>  
                             </div>
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
                         </div>
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
+                        <br>
+                        <div layout="row" layout-xs="column">
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                                </div>
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
                         </div>
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
+                        <br>
+                        <div layout="row" layout-xs="column">
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div layout="row" layout-xs="column">
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
-                        </div>
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
-                        </div>
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
-                        </div>
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
-                        </div>
-                    </div>
-                    <br>
-                    <div layout="row" layout-xs="column">
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
-                        </div>
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
-                        </div>
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
-                        </div>
-                        <div flex>
-                            <md-button class="md-icon-button logo" ng-click="vm.flip()">
-                                <img class="logo-image" src="../assets/cardCover.png">
-                            </md-button>
+                        <br>
+                        <div layout="row" layout-xs="column">
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
+                            <div flex>
+                                <md-button class="md-icon-button logo" ng-click="vm.flip()">
+                                </md-button>
+                            </div>
                         </div>
                     </div>
                 </md-content>

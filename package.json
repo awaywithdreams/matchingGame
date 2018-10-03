@@ -16,6 +16,7 @@
     "angular-ui-router": "^0.2.18",
     "animate.css": "^3.7.0",
     "body-parser": "^1.18.3",
+    "canonical-path": "0.0.2",
     "express": "^4.16.3",
     "lodash": "^4.17.11",
     "mdi": "^1.7.22",
