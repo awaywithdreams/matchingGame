@@ -77,6 +77,123 @@
           console.log(hardShuffledCards);
         };
 
+        function cardOpen() {
+          openedCards.push(this);
+          var len = openedCards.length;
+          if(len === 2){
+              moveCounter();
+              if(openedCards[0].type === openedCards[1].type){
+                  matched();
+              } else {
+                  unmatched();
+              }
+          }
+        };
+
+        function matched(){
+          openedCards[0].classList.add("match", "disabled");
+          openedCards[1].classList.add("match", "disabled");
+          openedCards[0].classList.remove("show", "open", "no-event");
+          openedCards[1].classList.remove("show", "open", "no-event");
+          openedCards = [];
+        };
+
+        function unmatched(){
+          openedCards[0].classList.add("unmatched");
+          openedCards[1].classList.add("unmatched");
+          disable();
+          setTimeout(function(){
+              openedCards[0].classList.remove("show", "open", "no-event","unmatched");
+              openedCards[1].classList.remove("show", "open", "no-event","unmatched");
+              enable();
+              openedCards = [];
+          },1100);
+        };
+
+        function disable(){
+          Array.prototype.filter.call(cards, function(card){
+              card.classList.add('disabled');
+          });
+        };
+
+        function enable(){
+          Array.prototype.filter.call(cards, function(card){
+              card.classList.remove('disabled');
+              for(var i = 0; i < matchedCard.length; i++){
+                  matchedCard[i].classList.add("disabled");
+              }
+          });
+        };
+
+        function moveCounter(){
+          moves++;
+          counter.innerHTML = moves;
+          //start timer on first click
+          if(moves == 1){
+              second = 0;
+              minute = 0; 
+              hour = 0;
+              startTimer();
+          }
+          // setting rates based on moves
+          if (moves > 8 && moves < 12){
+              for( i= 0; i < 3; i++){
+                  if(i > 1){
+                      stars[i].style.visibility = "collapse";
+                  }
+              }
+          }
+          else if (moves > 13){
+              for( i= 0; i < 3; i++){
+                  if(i > 0){
+                      stars[i].style.visibility = "collapse";
+                  }
+              }
+          }
+        };
+
+        var second = 0; 
+        var minute = 0;
+        var hour = 0;
+        var timer = document.querySelector(".timer");
+        var interval;
+        function startTimer(){
+            interval = setInterval(function(){
+                timer.innerHTML = minute+"mins "+second+"secs";
+                second++;
+                if(second == 60){
+                    minute++;
+                    second=0;
+                }
+                if(minute == 60){
+                    hour++;
+                    minute = 0;
+                }
+            },1000);
+          };
+
+          function congratulations(){
+            if (matchedCard.length == 16){
+                clearInterval(interval);
+                finalTime = timer.innerHTML;
+        
+                // show congratulations modal
+                modal.classList.add("show");
+        
+                // declare star rating variable
+                var starRating = document.querySelector(".stars").innerHTML;
+        
+                //showing move, rating, time on modal
+                document.getElementById("finalMove").innerHTML = moves;
+                document.getElementById("starRating").innerHTML = starRating;
+                document.getElementById("totalTime").innerHTML = finalTime;
+        
+                //closeicon on modal
+                closeModal();
+            };
+        };
+
+
         //logic for easy game
         function easyGame () {
           var card = document.getElementsByClassName("card");
@@ -104,6 +221,14 @@
             var timer = document.querySelector(".timer");
             timer.innerHTML = "0 mins 0 secs";
             clearInterval(interval);
+
+
+        for (var i = 0; i < cards.length; i++){
+          card = cards[i];
+          card.addEventListener("click", displayCard);
+          card.addEventListener("click", cardOpen);
+          card.addEventListener("click",congratulations);
+      };
         };
 
         //logic for hard game
@@ -133,6 +258,14 @@
             var timer = document.querySelector(".timer");
             timer.innerHTML = "0 mins 0 secs";
             clearInterval(interval);
+
+
+        for (var i = 0; i < cards.length; i++){
+          card = cards[i];
+          card.addEventListener("click", displayCard);
+          card.addEventListener("click", cardOpen);
+          card.addEventListener("click",congratulations);
+      };
         };
           
 
