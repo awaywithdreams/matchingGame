@@ -8,13 +8,6 @@
 <br>
 <div align="center">
     <h3>Let's Play a Matching Game, Please Select Your Difficulty</h3>
-    <!-- <form method="post" action="/addname">
-        <h4>Please Enter Your Name Below:</h4>
-        <md-input-container class="md-block" flex-gt-sm>
-            <label>First name</label>
-            <input ng-model="user.firstName">
-        </md-input-container>
-    </form> -->
 </div>
 <div ng-cloak>
     <md-content>
@@ -27,63 +20,38 @@
                                     <md-button class="md-raised md-warn" ng-click="vm.reset()">Reset</md-button>
                                 </div>
                             </div>
-                        <div layout="row">
-                            <div id="score-panel" align="center" flex>
-                                <div id="myProgress">
-                                    <md-progress-linear align="center" md-mode="determinate" value="{{vm.determinateValue}}"></md-progress-linear>
-                                </div>
-                            </div>
+                            <br>
+                        <div layout="row" ng-if="vm.isEasyStarted === true">
                         </div>
                         <br>
-                    <div class="container" ng-if="vm.isEasyStarted === true">
+                    <div class="container" ng-if="vm.isEasyStarted === true" flex>
                         <section class="score-panel">
                             <span class="moves">0</span> Moves
-                
-                            <div class="timer">
-                            </div>
+                            <div class="timer"></div>
                         </section>
-                
                         <ul class="deck" id="card-deck">
-                            <li class="card" type="diamond">
-                                <i class="fa fa-diamond"></i>
-                            </li>
-                            <li class="card" type="plane">
-                                <i class="fa fa-paper-plane-o"></i>
-                            </li>
-                            <li class="card match" type="anchor">
-                                <i class="fa fa-anchor"></i>
-                            </li>
-                            <li class="card" type="bolt" >
-                                <i class="fa fa-bolt"></i>
-                            </li>
-                            <li class="card" type="cube">
-                                <i class="fa fa-cube"></i>
-                            </li>
-                            <li class="card match" type="anchor">
-                                <i class="fa fa-anchor"></i>
-                            </li>
-                            <li class="card" type="leaf">
-                                <i class="fa fa-leaf"></i>
-                            </li>
-                            <li class="card" type="bicycle">
-                                <i class="fa fa-bicycle"></i>
-                            </li>
+                            <li class="card" type="A"></li>
+                            <li class="card" type="B"></li>
+                            <li class="card" type="C"></li>
+                            <li class="card" type="D" ></li>
+                            <li class="card" type="E"></li>
+                            <li class="card" type="F"></li>
+                            <li class="card" type="G"></li>
+                            <li class="card" type="H"></li>
                         </ul>
-                
                         <div id="popup1" class="overlay">
                             <div class="popup">
-                                <h2>Congratulations 🎉</h2>
+                                <h2>ITS OVER!</h2>
                                 <a class="close" href=# >×</a>
                                 <div class="content-1">
-                                    Congratulations you're a winner 🎉🎉
+                                    YAY! You Didn't Loose
                                 </div>
                                 <div class="content-2">
                                     <p>You made <span id=finalMove> </span> moves </p>
                                     <p>in <span id=totalTime> </span> </p>
-                                    <p>Rating:  <span id=starRating></span></p>
                                 </div>
                                 <button id="play-again"onclick="playAgain()">
-                                    Play again 😄</a>
+                                    Try to beat your score?</a>
                                 </button>
                             </div>
                         </div>
@@ -101,77 +69,50 @@
                         </div>
                         <div layout="row">
                             <div id="score-panel" align="center" flex ng-if="vm.isHardStarted === true">
-                                <md-progress-linear align="center" md-mode="determinate" value="{{vm.determinateValue}}"></md-progress-linear>
                             </div>
                         </div>
                         <br>
-                        <div layout="row">
-                            <div id="score-panel" align="center" flex>
-                                <span class="moves">0</span> Moves
-                            </div>
-                        </div>
                         <div ng-if="vm.isHardStarted === true">
-                            <div layout="row" layout-xs="column">
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
-                                </div>  
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
-                                </div>
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
-                                </div>
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
-                                </div>
-                            </div>
-                            <br>
-                            <div layout="row" layout-xs="column">
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
+                                    <div class="timer"></div>
+                                    <span class="moves">0</span> Moves
+
+                            </section>
+                                <ul class="deck" id="card-deck">
+                                    <li class="card" type="A"></li>
+                                    <li class="card" type="B"></li>
+                                    <li class="card" type="C"></li>
+                                    <li class="card" type="D" ></li>
+                                    <li class="card" type="E"></li>
+                                    <li class="card" type="F"></li>
+                                    <li class="card" type="G"></li>
+                                    <li class="card" type="H"></li>
+                                    <li class="card" type="I"></li>
+                                    <li class="card" type="J"></li>
+                                    <li class="card" type="K"></li>
+                                    <li class="card" type="L"></li>
+                                    <li class="card" type="M"></li>
+                                    <li class="card" type="N"></li>
+                                    <li class="card" type="O"></li>
+                                    <li class="card" type="P"></li>
+                                </ul>
+                                <div id="popup1" class="overlay">
+                                    <div class="popup">
+                                        <h2>Congratulations</h2>
+                                        <a class="close" href=# >×</a>
+                                        <div class="content-1">
+                                            YAY! You Didn't Loose
+                                        </div>
+                                        <div class="content-2">
+                                            <p>You made <span id=finalMove> </span> moves </p>
+                                            <p>in <span id=totalTime> </span> </p>
+                                        </div>
+                                        <button id="play-again"onclick="playAgain()">
+                                            Try to beat your score?</a>
+                                        </button>
                                     </div>
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
-                                </div>
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
-                                </div>
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
                                 </div>
                             </div>
-                            <br>
-                            <div layout="row" layout-xs="column">
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
-                                </div>
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
-                                </div>
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
-                                </div>
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
-                                </div>
-                            </div>
-                            <br>
-                            <div layout="row" layout-xs="column">
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
-                                </div>
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
-                                </div>
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
-                                </div>
-                                <div flex>
-                                    <md-button class="md-icon-button logo" ng-click="vm.flip()"></md-button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </md-content>
             </md-tab>
             <md-tab label="High Scores" style="padding: 25px; text-align: center;">
@@ -181,7 +122,6 @@
                             Name:
                             </div>
                             <div flex>
-                                Danielle
                             </div>
                         </div>
                     </md-content>

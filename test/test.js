@@ -22,7 +22,7 @@ var assert = require('assert');
   var assert = require('assert');
     describe('easyCards', function () {
       it('should have an indexOf -1', function (){
-        assert.equal(-1, ['A', 'B', 'A', 'B'].indexOf(3))
+        assert.equal(-1, ['A', 'B', 'C', 'D'].indexOf(3))
       })
     });
 

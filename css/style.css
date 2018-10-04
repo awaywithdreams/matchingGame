@@ -29,10 +29,9 @@ body {
 }
 
 .deck {
-	width: 85%;
+	width: 70%;
 	background: rgb(255, 255, 255);
 	padding: 1rem;
-	border-radius: 4px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
@@ -41,16 +40,16 @@ body {
 }
 
 .deck .card {
-	margin: 0.2rem 0.2rem;
+	margin: 0.1rem 0.1rem;
 	background: #1A237E;;
 	font-size: 0;
 	color: #ffffff;
-	border-radius: 5px;
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
+
 
 .deck .card.open {
 	transform: rotateY(0);
@@ -89,12 +88,6 @@ body {
 	opacity: 0.9;
 }
 
-
-/*
- * Styles for the Score Panel
- */
-
-
 .score-panel {
 	text-align: left;
 	margin-bottom: 10px;
@@ -104,11 +97,6 @@ body {
 	display: inline-block;
 	margin: 0 1rem;
 }
-
-/*
- * Styles for congratulations modal
- */
-
 
 .overlay {
 	position: fixed;
@@ -184,7 +172,6 @@ body {
 	border-radius: 5px;
 }
 
-/* animations */
 @keyframes flipInY {
 	from {
 		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
@@ -255,11 +242,6 @@ body {
 	}
 }
 
-
-/****** Media queries
-***************************/
-
-
 @media (max-width: 320px) {
 	.deck {
 		width: 85%;
@@ -271,9 +253,6 @@ body {
 	}
 }
 
-
-/* /* For Tablets and larger screens
-****************/
 
 @media (min-width: 768px) {
 	.container {
