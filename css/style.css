@@ -52,6 +52,7 @@ body {
 	align-items: center;
 }
 
+
 .deck .card.open {
 	transform: rotateY(0);
 	background: #03DAC6;

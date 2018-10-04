@@ -13,7 +13,6 @@
         vm.hardStart = hardStart;
         vm.isEasyStarted = false;
         vm.isHardStarted = false;
-        vm.flip = flip;
         vm.progressBar;
         vm.determinateValue = 0;
         var self = this, j= 0, counter = 0;
@@ -36,15 +35,14 @@
         //easy start game initalization 
         function easyStart () {
           vm.isEasyStarted = true;
-          // easyShuffle();
-          //to kick off the progress bar on start
           progressBar();
+          easyGame();
         };
 
         //hard start game initalization
         function hardStart () {
           vm.isHardStarted = true;
-          // hardShuffle();
+          hardGame();
           progressBar();
         }
 
@@ -58,39 +56,84 @@
           //setTimeout(gameOver, 1000);
         };
 
-        //to make flipping animation
-        function animationClick(element, animation){
-          element = $(element);
-          element.click(
-            function() {
-              element.addClass('animated ' + animation);
-              window.setTimeout( function(){
-                  element.removeClass('animated ' + animation);
-              }, 2000);
-            }
-          );
-        };  
-
-        //this runs on click of one of the cards
-        function flip () {
-          animationClick('.flipInX1','flipInX'); 
+        var displayCard = function (){
+          this.classList.toggle("open");
+          this.classList.toggle("show");
+          this.classList.toggle("disabled");
         };
-
         //shuffling the cards for the easy deck
         function easyShuffle () {
+          var easyShuffledCards = [];
           var easyCards = ['A', 'B', 'A', 'B'];
           return easyShuffledCards = _.shuffle(easyCards);
-          console.log(easyShuffledCards);
         };
 
         //shuffling the cards for the hard deck
         function hardShuffle () {
+          var hardShuffledCards = [];
           var hardCards = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D',
                           'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'];
           return hardShuffledCards = _.shuffle(hardCards);
           console.log(hardShuffledCards);
         };
 
+        //logic for easy game
+        function easyGame () {
+          var card = document.getElementsByClassName("card");
+          var deck = document.getElementById("card-deck");
+          var moves = 0;
+          var counter = document.querySelector(".moves");
+          var matchedCard = document.getElementsByClassName("match");
+          var modal = document.getElementById("popup1")
+          var openedCards = [];
+
+          var cards = easyShuffle();
+          for (var i = 0; i < cards.length; i++){
+            deck.innerHTML = "";
+            [].forEach.call(cards, function(item) {
+                deck.appendChild(item);
+            });
+            cards[i].classList.remove("show", "open", "match", "disabled");
+          }
+            moves = 0;
+            counter.innerHTML = moves;
+
+            second = 0;
+            minute = 0; 
+            hour = 0;
+            var timer = document.querySelector(".timer");
+            timer.innerHTML = "0 mins 0 secs";
+            clearInterval(interval);
+        };
+
+        //logic for hard game
+        function hardGame () {
+          var card = document.getElementsByClassName("card");
+          var deck = document.getElementById("card-deck");
+          var moves = 0;
+          var counter = document.querySelector(".moves");
+          var matchedCard = document.getElementsByClassName("match");
+          var modal = document.getElementById("popup1")
+          var openedCards = [];
+
+          var cards = hardShuffle();
+          for (var i = 0; i < cards.length; i++){
+            deck.innerHTML = "";
+            [].forEach.call(cards, function(item) {
+                deck.appendChild(item);
+            });
+            cards[i].classList.remove("show", "open", "match", "disabled");
+          }
+            moves = 0;
+            counter.innerHTML = moves;
+
+            second = 0;
+            minute = 0; 
+            hour = 0;
+            var timer = document.querySelector(".timer");
+            timer.innerHTML = "0 mins 0 secs";
+            clearInterval(interval);
+        };
           
 
 
