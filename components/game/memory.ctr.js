@@ -36,7 +36,7 @@
         //easy start game initalization 
         function easyStart () {
           vm.isEasyStarted = true;
-          easyShuffle();
+          // easyShuffle();
           //to kick off the progress bar on start
           progressBar();
         };
@@ -44,7 +44,7 @@
         //hard start game initalization
         function hardStart () {
           vm.isHardStarted = true;
-          hardShuffle();
+          // hardShuffle();
           progressBar();
         }
 
@@ -90,6 +90,8 @@
           return hardShuffledCards = _.shuffle(hardCards);
           console.log(hardShuffledCards);
         };
+
+          
 
 
 

@@ -19,6 +19,8 @@
             controller: 'memoryController as vm'
           });
 
+          
+
       });
       
   })();
